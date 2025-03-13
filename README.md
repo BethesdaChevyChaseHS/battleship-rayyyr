@@ -31,8 +31,7 @@ In this part we will write the code for ship.java. This class will represent a s
 
 To test this portion of the project, run the following command: 
 ```
-gradle -p ./battleship runShipTest
-```
+                       ```
 
 ### Part 2 - Location.java
 Mr. Brown time estimate - 30mins

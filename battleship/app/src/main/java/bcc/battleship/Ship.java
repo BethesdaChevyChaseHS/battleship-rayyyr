@@ -2,9 +2,9 @@ package bcc.battleship;
 
 public class Ship {
 
-    private int row = UNSET;
-    private int col = UNSET;
-    private int direction = UNSET;
+    private int row = Constants.UNSET;
+    private int col = Constants.UNSET;
+    private int direction = Constants.UNSET;
     private int length;
     // Constructor. Create a ship and set the length.
     public Ship(int length) {
@@ -13,7 +13,7 @@ public class Ship {
 
     // Has the location been initialized
     public boolean isLocationSet() {
-        if (row != UNSET)
+        if (row != Constants.UNSET)
         {
             return true;
         }
@@ -22,7 +22,7 @@ public class Ship {
 
     // Has the direction been initialized
     public boolean isDirectionSet() {
-        if (direction != UNSET)
+        if (direction != Constants.UNSET)
         {
             return true;
         }
@@ -63,21 +63,29 @@ public class Ship {
     // Helper method to get a string value from the direction
     // Helper method to get a string value from the direction
     private String directionToString() {
-        return direction;
+        if(direction == Constants.VERTICAL)
+        {
+            return "vertical";
+        }
+        if(direction == Constants.HORIZONTAL)
+        {
+            return "horizontal";
+        }
+        return "unset direction";
     }
 
     // Helper method to get a (row, col) string value from the location
     private String locationToString() {
-        if (row != UNSET)
+        if (row != Constants.UNSET)
         {
             return "(" + row + ", " + col + ")";
         }
-        return "(unset location";
+        return "(unset location)";
     }
 
     // toString value for this Ship
     @Override
     public String toString() {
-        return directionToString() + "ship of length " + length + " at " + locationToString();
+        return directionToString() + " ship of length " + length + " at " + locationToString();
     }
 }
